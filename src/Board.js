@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Note from './Note'
 
-var Board = React.createClass({
+let Board = React.createClass({
   propTypes: {
     count: function(props, propName) {
       if(typeof props[propName] !== "number") {
@@ -21,7 +21,7 @@ var Board = React.createClass({
   },
   componentWillMount() {
     if (this.props.count) {
-      var url = `http://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`
+      let url = `http://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`
       fetch(url)
             .then(results => results.json())
             .then(array => array[0])
@@ -38,7 +38,7 @@ var Board = React.createClass({
     return this.uniqueId++
   },
   add(text) {
-    var notes = [
+    let notes = [
       ...this.state.notes,
       {
         id: this.nextId(),
@@ -48,7 +48,7 @@ var Board = React.createClass({
     this.setState({notes})
   },
   update(newText, id) {
-    var notes = this.state.notes.map(
+    let notes = this.state.notes.map(
       note => (note.id !== id) ?
         note :
           {
@@ -59,7 +59,7 @@ var Board = React.createClass({
     this.setState({notes})
   },
   remove(id) {
-    var notes = this.state.notes.filter(note => note.id !== id)
+    let notes = this.state.notes.filter(note => note.id !== id)
     this.setState({notes})
   },
   eachNote(note) {

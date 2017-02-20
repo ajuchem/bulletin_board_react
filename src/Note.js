@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Draggable from 'react-draggable'
 
-var Note = React.createClass({
+let Note = React.createClass({
   getInitialState() {
     return {editing: false}
   },
